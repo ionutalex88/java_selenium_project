@@ -92,45 +92,46 @@ public class Verify {
 	}
 	
 	/**
-	 * Checks if the actual string contains the expected string and Logs the result
+	 * Checks if the actual string contains the searched string and Logs the result
 	 * @param message
-	 * @param expected
+	 * @param searched
 	 * @param actual
 	 */
-	public static void contains (String message, String expected, String actual){
-		System.out.println("::VERIFICATION-> "+message+": searched="+expected+" actual="+actual);
-		if (actual.contains(expected)){
-			Log.reportPassed(message, expected, actual);
-			Log.text("PASSED::VERIFICATION-> "+message+": searched="+expected+" actual="+actual);
+	public static void contains (String message, String searched, String actual){
+		System.out.println("::VERIFICATION-> "+message+": searched="+searched+" actual="+actual);
+		if (actual.contains(searched)){
+			Log.reportPassed(message, searched, actual);
+			Log.text("PASSED::VERIFICATION-> "+message+": searched="+searched+" actual="+actual);
 		}
 		else{
-			Log.reportFailure(message, expected, actual);
-			Log.text("FAILED::VERIFICATION-> "+message+": searched="+expected+" actual="+actual);
+			Log.reportFailure(message, searched, actual);
+			Log.text("FAILED::VERIFICATION-> "+message+": searched="+searched+" actual="+actual);
 			finalResult = false;
 		}
 	}
 	
 
 	/**
-	 * Verifies if the expected String is Contained in the Array of Strings given as parameter
+	 * Verifies if the searched String is Contained in the Array of Strings given as parameter
 	 * @param message
-	 * @param expected
+	 * @param searched
 	 * @param actual
 	 */
-	public static void contains (String message, String expected, ArrayList<String> actual){
-		System.out.println("::VERIFICATION-> "+message+": expected="+expected+" actual="+actual);
+	public static void contains (String message, String searched, ArrayList<String> actual){
+		System.out.println("::VERIFICATION-> "+message+": searched="+searched+" actual="+actual);
 		boolean found = false;
 		for (String actualElement : actual) {
-			if (actualElement.equals(expected))
+			if (actualElement.equals(searched)) {
 				found = true;
+			}
 		}
 		if (found){
-			Log.reportPassed(message, "true", String.valueOf(found));
-			Log.text("PASSED::VERIFICATION-> "+message+": expected=true"+" actual="+String.valueOf(found));
+			Log.reportPassed(message, searched, actual.toString());
+			Log.text("PASSED::VERIFICATION-> "+message+": searched="+ searched +" actual="+actual.toString());
 		}
 		else{
-			Log.reportFailure(message, "true", String.valueOf(found));
-			Log.text("FAILED::VERIFICATION-> "+message+": expected=true"+" actual="+String.valueOf(found));
+			Log.reportFailure(message, searched, actual.toString());
+			Log.text("FAILED::VERIFICATION-> "+message+": searched="+ searched +" actual="+actual.toString());
 			finalResult = false;
 		}
 	}

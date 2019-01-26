@@ -48,6 +48,7 @@ public class AUT {
 	public Login loginPage = new Login();
 	public Home homePage = new Home();
 	public SearchResultsPage searchResultsPage = new SearchResultsPage();
+	public ArticlePage articlePage = new ArticlePage();
 
 	 //===============================Methods=========================
 	 /**
