@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="java" deleted="false" description="the content of the main method for a test suite" enabled="true" name="suiteMain">public static void main(String[] args) {&#13;
+	// Create the suite report file&#13;
+	SuiteEditor.createNewTestSuite("${enclosing_type}");&#13;
+	&#13;
+	// Insert tests to be executed&#13;
+	ExampleTest.main(null);&#13;
+&#13;
+}</template></templates>

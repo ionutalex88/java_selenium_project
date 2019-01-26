@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="java" deleted="false" description="The default body of a page class" enabled="true" name="pageClassBody">&#13;
+//==========================Objects on page====================&#13;
+//--------Examples -&gt;remove after creation---------------------&#13;
+public Button example = new Button(By.cssSelector("#example"));&#13;
+public Input field = new Input(By.cssSelector(".iput"));&#13;
+&#13;
+//==========================Methods for this page=============================&#13;
+/**&#13;
+ * This is an example method. Remove after creating&#13;
+ */&#13;
+public void exampleMethod(String user){&#13;
+	field.inputText(user);&#13;
+	example.click();&#13;
+    Verify.compare("Verification example", true, example.isVisible());&#13;
+}&#13;
+</template></templates>

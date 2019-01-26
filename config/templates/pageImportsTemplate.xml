@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="java" deleted="false" description="The required imports when creating a new &quot;page  Class&quot;" enabled="true" name="pageImports">import objectTypes.*;&#13;
+&#13;
+import org.openqa.selenium.By;&#13;
+&#13;
+import aut.AUT;&#13;
+import utilities.Verify;&#13;
+import utilities.Log;&#13;
+</template></templates>

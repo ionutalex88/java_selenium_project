@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><config>
+	<profile name="Default">
+		<browser>Chrome</browser>
+		<homepage>http://azerty.ro</homepage>
+		<language>EN</language>
+	</profile>
+	<profile name="French">
+		<browser>Firefox</browser>
+		<homepage>http://google.fr</homepage>
+		<language>fr</language>
+	</profile>
+	<profile name="Iframe">
+		<browser>Chrome</browser>
+		<homepage>http://www.littlewebhut.com/articles/html_iframe_example</homepage>
+		<language>This works! EN</language></profile>
+
+</config>
