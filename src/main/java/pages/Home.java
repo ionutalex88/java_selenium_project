@@ -1,26 +1,31 @@
 package pages;
 
 import objectTypes.Button;
+import objectTypes.CommonObject;
 import objectTypes.Input;
-import objectTypes.Link;
-import objectTypes.Table;
 import org.openqa.selenium.By;
 
 public class Home {
 	
 	//==========================Objects on page====================
-	public Table tabel = new Table(By.cssSelector(".reference"));
-	public Link women = new Link(By.linkText("WOMEN"));
-	public Input email = new Input(By.cssSelector("#LoginForm input[name=\'email\']"));
-	public Input password = new Input(By.cssSelector("#LoginForm input[name=\'password\']"));
-	public Button submit = new Button(By.cssSelector("#LoginForm .ok"));
-	
+	public Button signInButton = new Button(By.cssSelector("#idcta-username"));
+	public CommonObject accountSection = new CommonObject (By.cssSelector("#idcta-statusbar"));
+
+	public Input seachInput = new Input(By.cssSelector("#orb-search-q"));
+	public Button searchButton = new Button(By.cssSelector("#orb-search-button"));
 	//==========================Methods for this page=============================
-	public void loginWith(String username, String password){
-		email.inputText(username);
-		this.password.inputText(password);
-		submit.click();
+
+	public String getAccountName (){
+		return this.accountSection.getText();
 	}
-		
+
+	/**
+	 * Performs a search for a specific text
+	 * @param text
+	 */
+	public void searchForText(String text){
+		this.seachInput.inputText(text);
+		this.searchButton.click();
+	}
 
 }

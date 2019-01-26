@@ -1,33 +1,34 @@
 package pages;
 
-import aut.AUT;
 import objectTypes.Button;
+import objectTypes.CommonObject;
 import objectTypes.Input;
 import org.openqa.selenium.By;
-import utilities.Verify;
 
-public class
-        Login {
+public class Login {
 
 	//==========================Objects on page====================
-	public Input username = new Input(By.cssSelector("#email_address"));
-    public Input pass = new Input(By.id("password"));
+	public Input email = new Input(By.cssSelector("#user-identifier-input"));
+    public Input password = new Input(By.cssSelector("#password-input"));
     
-    public Button submitButton = new Button(By.cssSelector("#login-button"));
+    public Button submitButton = new Button(By.cssSelector("#submit-button"));
 
+    public CommonObject loginErrorText = new CommonObject(By.cssSelector(".form-message--error .form-message__text"));
 
     //==========================Methods for this page=============================
     /**
      * Performs a login operation using the given parameters
-     * @param user
+     * @param email
      * @param password
      */
-    public void performLogin(String user, String password){
-    	AUT aut = new AUT();
-        username.inputText(user);
-        pass.inputText(password);
+    public void loginWithCredentials(String email, String password){
+        this.email.inputText(email);
+        this.password.inputText(password);
         submitButton.click();
-        Verify.compare("Login successfully performed", true, aut.commons.accountLinks.isDisplayed());
+    };
+
+    public String getLoginErrorText(){
+        return this.loginErrorText.getText();
     }
     
 }

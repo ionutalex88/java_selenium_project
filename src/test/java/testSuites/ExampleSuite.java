@@ -2,7 +2,7 @@ package testSuites;
 
 import tests.ExampleTest;
 import tests.Test2;
-import tests.TestLogin;
+import tests.TestLogin_Valid;
 import utilities.suiteUtilities.SuiteEditor;
 
 public class ExampleSuite {
@@ -12,7 +12,7 @@ public class ExampleSuite {
 		SuiteEditor.createNewTestSuite("Results");
 		
 		// Insert tests to be executed
-		TestLogin.main(null);
+		TestLogin_Valid.main(null);
 		ExampleTest.main(null);
 		Test2.main(null);
 

@@ -47,12 +47,7 @@ public class AUT {
 	 //===============================Pages===========================
 	public Login loginPage = new Login();
 	public Home homePage = new Home();
-	public Commons commons = new Commons();
-	public ProductsGrid productsGrid = new ProductsGrid();
-	public ProductDetails productDetailsPage = new ProductDetails();
-	public MiniCart miniCart = new MiniCart();
-	public Checkout_OrderDetails checkout_OrderDetails = new Checkout_OrderDetails();
-	public WithIframe withIframe = new WithIframe();
+	public SearchResultsPage searchResultsPage = new SearchResultsPage();
 
 	 //===============================Methods=========================
 	 /**

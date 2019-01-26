@@ -98,14 +98,14 @@ public class Verify {
 	 * @param actual
 	 */
 	public static void contains (String message, String expected, String actual){
-		System.out.println("::VERIFICATION-> "+message+": expected="+expected+" actual="+actual);
+		System.out.println("::VERIFICATION-> "+message+": searched="+expected+" actual="+actual);
 		if (actual.contains(expected)){
 			Log.reportPassed(message, expected, actual);
-			Log.text("PASSED::VERIFICATION-> "+message+": expected="+expected+" actual="+actual);
+			Log.text("PASSED::VERIFICATION-> "+message+": searched="+expected+" actual="+actual);
 		}
 		else{
 			Log.reportFailure(message, expected, actual);
-			Log.text("FAILED::VERIFICATION-> "+message+": expected="+expected+" actual="+actual);
+			Log.text("FAILED::VERIFICATION-> "+message+": searched="+expected+" actual="+actual);
 			finalResult = false;
 		}
 	}
