@@ -13,7 +13,7 @@ public class Login {
     
     public Button submitButton = new Button(By.cssSelector("#submit-button"));
 
-    public CommonObject loginErrorText = new CommonObject(By.cssSelector(".form-message--error .form-message__text"));
+    public CommonObject loginErrorText = new CommonObject(By.cssSelector("#form-message-username"));
 
     //==========================Methods for this page=============================
     /**
@@ -25,7 +25,7 @@ public class Login {
         this.email.inputText(email);
         this.password.inputText(password);
         submitButton.click();
-    };
+    }
 
     public String getLoginErrorText(){
         return this.loginErrorText.getText();

@@ -24,13 +24,13 @@ public class Articles_Search {
         }
         //in case any error occurs
         catch (Exception e) {
-            Verify.finalResult = false;
+            Assert.finalResult = false;
             Log.error(e);
             e.printStackTrace();
         }
         //at the end of test execution
         finally {
-            Verify.logFinalResult();
+            Assert.logFinalResult();
             aut.closeBrowser();
         }
     }

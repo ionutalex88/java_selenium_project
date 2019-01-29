@@ -9,7 +9,7 @@ public class Input extends CommonObject {
 	public Input(By selector) {
 		super(selector);
 	}
-	public Input(){};
+	public Input(){}
 
 	//====================Methods=====================
 	/**

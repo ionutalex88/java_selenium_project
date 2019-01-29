@@ -64,7 +64,7 @@ public class Log {
 		writeReportCSS();
 		
 		//reset the final result for Suite running
-		Verify.resetFinalResult();
+		Assert.resetFinalResult();
 	}
 
 	

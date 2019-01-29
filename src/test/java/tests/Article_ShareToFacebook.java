@@ -1,6 +1,7 @@
 package tests;
 
 import aut.AUT;
+import testData.dataObjects.SocialMediaData;
 import utilities.*;
 
 public class Article_ShareToFacebook {
@@ -24,24 +25,26 @@ public class Article_ShareToFacebook {
             aut.articlePage.shareArticleButton.click();
             aut.articlePage.checkForSocialMediaOption("Facebook");
 
-            Log.step("***Step 3 - Click on Facebook and check redirect***");
+            Log.step("***Step 4 - Click on Facebook and check redirect***");
             aut.articlePage.clickOnSocialMediaOption("Facebook");
-            //TODO check new window
 
+            String mainWindow = aut.getCurrentWindow();
+            aut.switchToLastWindow();
+            Assert.stringContains("New window stringContains ", SocialMediaData.facebookLoginMessage, aut.facebookShareLogin.content.getText());
 
-
-
-
+            Log.step("***Step 5 - Close Facebook share window***");
+            aut.closeWindow();
+            aut.switchToWindow(mainWindow);
         }
         //in case any error occurs
         catch (Exception e) {
-            Verify.finalResult = false;
+            Assert.finalResult = false;
             Log.error(e);
             e.printStackTrace();
         }
         //at the end of test execution
         finally {
-            Verify.logFinalResult();
+            Assert.logFinalResult();
             aut.closeBrowser();
         }
     }

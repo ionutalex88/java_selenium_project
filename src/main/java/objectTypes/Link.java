@@ -9,7 +9,6 @@ public class Link extends CommonObject {
 	//====================Constructor===============
 	public Link(By selector) {
 		super(selector);
-		// TODO Auto-generated constructor stub
 	}
 	
 	//=====================Methods==================

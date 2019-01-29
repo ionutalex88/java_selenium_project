@@ -4,7 +4,7 @@ import utilities.suiteUtilities.SuiteEditor;
 
 import java.util.ArrayList;
 
-public class Verify {
+public class Assert {
 
 	/**
 	 * The final result of the script execution
@@ -21,7 +21,7 @@ public class Verify {
 	 * @param expected
 	 * @param actual
 	 */
-	public static void compare (String message, String expected, String actual){
+	public static void stringsMatch(String message, String expected, String actual){
 		System.out.println("::VERIFICATION-> "+message+": expected="+expected+" actual="+actual);
 		if (expected.equals(actual)){
 			Log.reportPassed(message, expected, actual);
@@ -40,26 +40,7 @@ public class Verify {
 	 * @param expected
 	 * @param actual
 	 */
-	public static void compare (String message, double expected, double actual){
-		System.out.println("::VERIFICATION-> "+message+": expected="+expected+" actual="+actual);
-		if (expected==actual){
-			Log.reportPassed(message, Double.toString(expected), Double.toString(actual));
-			Log.text("PASSED::VERIFICATION-> "+message+": expected="+expected+" actual="+actual);
-		}
-		else{
-			Log.reportFailure(message, Double.toString(expected), Double.toString(actual));
-			Log.text("FAILED::VERIFICATION-> "+message+": expected="+expected+" actual="+actual);
-			finalResult = false;
-		}
-	}
-	
-	/**
-	 * Compares two double values and Logs the result
-	 * @param message
-	 * @param expected
-	 * @param actual
-	 */
-	public static void compare (String message, boolean expected, boolean actual){
+	public static void valuesMatch(String message, boolean expected, boolean actual){
 		System.out.println("::VERIFICATION-> "+message+": expected="+expected+" actual="+actual);
 		if (expected==actual){
 			Log.reportPassed(message, Boolean.toString(expected), Boolean.toString(actual));
@@ -78,7 +59,7 @@ public class Verify {
 	 * @param expected
 	 * @param actual
 	 */
-	public static void compare (String message, int expected, int actual){
+	public static void valuesMatch(String message, int expected, int actual){
 		System.out.println("::VERIFICATION-> "+message+": expected="+expected+" actual="+actual);
 		if (expected==actual){
 			Log.reportPassed(message, Integer.toString(expected), Integer.toString(actual));
@@ -92,12 +73,12 @@ public class Verify {
 	}
 	
 	/**
-	 * Checks if the actual string contains the searched string and Logs the result
+	 * Checks if the actual string stringContains the searched string and Logs the result
 	 * @param message
 	 * @param searched
 	 * @param actual
 	 */
-	public static void contains (String message, String searched, String actual){
+	public static void stringContains(String message, String searched, String actual){
 		System.out.println("::VERIFICATION-> "+message+": searched="+searched+" actual="+actual);
 		if (actual.contains(searched)){
 			Log.reportPassed(message, searched, actual);
@@ -117,7 +98,7 @@ public class Verify {
 	 * @param searched
 	 * @param actual
 	 */
-	public static void contains (String message, String searched, ArrayList<String> actual){
+	public static void listContains(String message, String searched, ArrayList<String> actual){
 		System.out.println("::VERIFICATION-> "+message+": searched="+searched+" actual="+actual);
 		boolean found = false;
 		for (String actualElement : actual) {

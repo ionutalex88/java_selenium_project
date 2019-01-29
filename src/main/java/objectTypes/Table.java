@@ -10,10 +10,11 @@ public class Table extends CommonObject {
 	//=====================Constructor=====================
 	public Table(By selector) {
 		super(selector);
-		// TODO Auto-generated constructor stub
 	}
 	
 	//=======================Methods=======================
+
+	//Note - these methods might be changed to match different types of tables
 	
 	/**
 	 * Returns the WebElement representing the cell positioned at the indicated location by parameters

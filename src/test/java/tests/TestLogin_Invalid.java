@@ -5,7 +5,7 @@ import testData.dataObjects.LoginData;
 import testData.dataTypes.User;
 import utilities.Config;
 import utilities.Log;
-import utilities.Verify;
+import utilities.Assert;
 
 public class TestLogin_Invalid {
 	
@@ -13,7 +13,7 @@ public class TestLogin_Invalid {
 		String testName = "TestLogin_Invalid";
 		AUT aut = new AUT(args);
 		Log.createLogAndReport(testName);
-		Verify.resetFinalResult();
+		Assert.resetFinalResult();
 
 		try {
 			Log.step("***Step 1 - Navigate to Homepage***");
@@ -29,18 +29,18 @@ public class TestLogin_Invalid {
 			aut.loginPage.loginWithCredentials(testUser.email, testUser.password);
 
 			Log.step("***Step 3 - Check that user was authenticated***");
-			Verify.compare("Check error message",aut.loginPage.getLoginErrorText(), LoginData.invalidCredentialsErrorText);
+			Assert.stringsMatch("Check error message",aut.loginPage.getLoginErrorText(), LoginData.invalidCredentialsErrorText);
 
 		}
 		//in case any error occurs
 		catch (Exception e) {
-			Verify.finalResult = false;
+			Assert.finalResult = false;
 			Log.error(e);
 			e.printStackTrace();
 		}
 		//at the end of test execution
 		finally {
-			Verify.logFinalResult();
+			Assert.logFinalResult();
 			aut.closeBrowser();
 		}
 	}

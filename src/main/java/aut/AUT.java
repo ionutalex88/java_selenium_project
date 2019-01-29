@@ -13,6 +13,7 @@ import utilities.Log;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 
 public class AUT {
@@ -49,6 +50,7 @@ public class AUT {
 	public Home homePage = new Home();
 	public SearchResultsPage searchResultsPage = new SearchResultsPage();
 	public ArticlePage articlePage = new ArticlePage();
+	public FacebookShareLogin facebookShareLogin = new FacebookShareLogin();
 
 	 //===============================Methods=========================
 	 /**
@@ -78,7 +80,7 @@ public class AUT {
 	
 	/**
 	 * @param text
-	 * @return true if page contains the given text
+	 * @return true if page stringContains the given text
 	 */
 	public boolean pageContains(String text){
 		return driver.getPageSource().contains(text);
@@ -148,6 +150,44 @@ public class AUT {
 	public void setTimeout(long seconds){
 		driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
 	}
-	
+
+	/**
+	 * Switches context to window with given title
+	 * @param windowTitle
+	 */
+	public void switchToWindow(String windowTitle){
+		driver.switchTo().window(windowTitle);
+	}
+
+	/**
+	 * Switches to last opened window
+	 */
+	public void switchToLastWindow(){
+		Object lastElement = null;
+		for (Iterator collectionItr = driver.getWindowHandles().iterator(); collectionItr.hasNext(); ) {
+			lastElement = collectionItr.next();
+		}
+
+		Log.text("Switched to window = " + lastElement);
+		System.out.println("Switched to window = " + lastElement);
+		this.switchToWindow(lastElement.toString());
+	}
+
+	/**
+	 * Gets Current window handle string
+	 * @return
+	 */
+	public String getCurrentWindow(){
+		return driver.getWindowHandle();
+	}
+
+	/**
+	 * Closes currently selected window
+	 */
+	public void closeWindow(){
+		driver.close();
+	}
+
+
 
 }

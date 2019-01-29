@@ -4,7 +4,7 @@ import objectTypes.Button;
 import objectTypes.Link;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import utilities.Verify;
+import utilities.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class ArticlePage {
         for (WebElement option : options) {
             socialMediaOptionsTitles.add(option.getText().trim());
         }
-        Verify.contains("Check presence of " + socialMediaOption, socialMediaOption, socialMediaOptionsTitles);
+        Assert.listContains("Check presence of " + socialMediaOption, socialMediaOption, socialMediaOptionsTitles);
     }
 
     public void clickOnSocialMediaOption(String socialMediaOption) throws Exception {

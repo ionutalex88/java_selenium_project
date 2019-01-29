@@ -3,7 +3,7 @@ package pages;
 import objectTypes.CommonObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import utilities.Verify;
+import utilities.Assert;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class SearchResultsPage {
     public void checkAllHeadlinesContainText(String expectedText){
         List<WebElement> articles = this.articleHeadline.findAll();
         for (WebElement article : articles) {
-            Verify.contains("Title check", expectedText, article.getText());
+            Assert.stringContains("Title check", expectedText, article.getText());
         }
     }
 

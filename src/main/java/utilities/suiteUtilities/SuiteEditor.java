@@ -4,7 +4,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import utilities.FileUtil;
 import utilities.Log;
-import utilities.Verify;
+import utilities.Assert;
 
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -242,7 +242,7 @@ public class SuiteEditor {
 	 * Appends the final result in the Batch Report .html file
 	 */
 	public static void reportFinalResult(){
-		if (Verify.finalResult)
+		if (Assert.finalResult)
 			reportPassedScript();
 		else
 			reportFailedScript();

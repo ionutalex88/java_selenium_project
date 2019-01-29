@@ -11,7 +11,7 @@ public class LoginData {
 
     private String xmlPath = "testData/users.xml";
 
-    public static String invalidCredentialsErrorText = "Invalid Credentials";
+    public static String invalidCredentialsErrorText = "Sorry, we can’t find an account with that email. You can register for a new account or get help here.";
 
     public static User mainUser(){
         User user = new User();

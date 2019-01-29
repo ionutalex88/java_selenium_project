@@ -5,7 +5,7 @@ import testData.dataObjects.LoginData;
 import testData.dataTypes.User;
 import utilities.Config;
 import utilities.Log;
-import utilities.Verify;
+import utilities.Assert;
 
 public class TestLogin_Valid {
 	
@@ -13,13 +13,12 @@ public class TestLogin_Valid {
 		String testName = "TestLogin_Valid";
 		AUT aut = new AUT(args);
 		Log.createLogAndReport(testName);
-		Verify.resetFinalResult();
+		Assert.resetFinalResult();
 
 		try {
 			Log.step("***Step 1 - Navigate to Homepage***");
 			aut.maximizeScreen();
 			aut.navigate(Config.getHomepage());
-			// TODO: Insert actions here
 
 			Log.step("***Step 2 - Click on Sign In***");
 			aut.homePage.signInButton.click();
@@ -30,18 +29,18 @@ public class TestLogin_Valid {
 			aut.loginPage.loginWithCredentials(testUser.email, testUser.password);
 
 			Log.step("***Step 3 - Check that user was authenticated***");
-			Verify.compare("User Name Check",aut.homePage.getAccountName(), testUser.firstName + " " + testUser.lastName);
+			Assert.stringsMatch("User Name Check",aut.homePage.getAccountName(), testUser.firstName + " " + testUser.lastName);
 
 		}
 		//in case any error occurs
 		catch (Exception e) {
-			Verify.finalResult = false;
+			Assert.finalResult = false;
 			Log.error(e);
 			e.printStackTrace();
 		}
 		//at the end of test execution
 		finally {
-			Verify.logFinalResult();
+			Assert.logFinalResult();
 			aut.closeBrowser();
 		}
 	}
