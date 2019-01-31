@@ -71,6 +71,25 @@ public class Assert {
 			finalResult = false;
 		}
 	}
+
+	/**
+	 * Compares two integer values and Logs the result
+	 * @param message
+	 * @param expected
+	 * @param actual
+	 */
+	public static void valuesMatch(String message, double expected, double actual){
+		System.out.println("::VERIFICATION-> "+message+": expected="+expected+" actual="+actual);
+		if (expected==actual){
+			Log.reportPassed(message, String.valueOf(expected), String.valueOf(actual));
+			Log.text("PASSED::VERIFICATION-> "+message+": expected="+expected+" actual="+actual);
+		}
+		else{
+			Log.reportFailure(message, String.valueOf(expected), String.valueOf(actual));
+			Log.text("FAILED::VERIFICATION-> "+message+": expected="+expected+" actual="+actual);
+			finalResult = false;
+		}
+	}
 	
 	/**
 	 * Checks if the actual string stringContains the searched string and Logs the result
